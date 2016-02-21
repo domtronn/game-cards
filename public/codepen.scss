@@ -1,0 +1,40 @@
+body { background-color: #bebebe; }
+
+.card {
+		width: 350px;
+		height: 285px;
+		background-color: #fafafa;
+		border-radius: 5px;
+		
+		& .card--wallpaper {
+				height: 60%;
+				border-radius: 5px 5px 0 0;
+				
+				background-size: 350px;
+				background-image: url("http://images3.alphacoders.com/680/680984.jpg");
+		}
+
+		& .card--infoRating {
+				width: 90%;
+				padding-left: 5%;
+				
+				& .card--infoRatingBlock {
+						width: 8%;
+						margin-left: 1%;
+						margin-right: 1%;
+						display: inline-block;
+						height: 20px;
+
+						&.card--infoRatingBlock__Yes {
+								background-color: #af4;
+						}
+
+						&.card--infoRatingBlock__No {
+								background-color: #aaa;
+						}
+				}
+		}
+
+		
+		
+}
