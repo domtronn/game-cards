@@ -9,7 +9,7 @@ const config = require('../config');
 let firstGame = R.compose(R.head, R.prop('games'));
 
 let getName = R.compose(R.prop('name'), firstGame);
-let getReleaseDate = R.compose((date) => new Date(date), R.prop('release_date'), firstGame);
+let getReleaseDate = R.compose((date) => (new Date(date)).getTime(), R.prop('release_date'), firstGame);
 
 module.exports = function (term) {
 
