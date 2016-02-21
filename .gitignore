@@ -1,0 +1,5 @@
+config.json
+.git
+.tern-port
+.tags
+*/node_modules/*
