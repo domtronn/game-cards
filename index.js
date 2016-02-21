@@ -1,11 +1,11 @@
 'use strict';
 
-const R = require('ramda');
-const Q = require('q');
+const R   = require('ramda');
+const Q   = require('q');
 const app = require('express')();
 
+const getData      = require('./src/getData');
 const getWallpaper = require('./src/getWallpaper');
-const getData = require('./src/getData');
 
 let sanitise = R.compose(R.join(' '), R.split(/\-_/));
 
