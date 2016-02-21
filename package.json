@@ -1,0 +1,20 @@
+{
+  "name": "project-trellogdb",
+  "version": "1.0.0",
+  "description": "A power up for trello boards to create cards for games using IGDB",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dominic Charlesworth <dgc336@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "express": "^4.13.4",
+    "igdb-api-node": "^1.0.0",
+    "lodash": "^4.5.0",
+    "q": "^1.4.1",
+    "ramda": "^0.19.1",
+    "request": "^2.69.0"
+  }
+}
