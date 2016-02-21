@@ -5,8 +5,9 @@ const R = require('ramda');
 const Q = require('q');
 
 const config = require('../config');
+const limit = 5;
 
-let getImageUrls = R.compose(R.pluck('url_image'), R.prop('wallpapers'));
+let getImageUrls = R.compose(R.take(limit), R.pluck('url_image'), R.prop('wallpapers'));
 
 module.exports = function (term) {
 
