@@ -17,11 +17,13 @@ module.exports = function (term) {
 		term		: term
 	};
 
+	
+	console.log(`GET http://wall.alphacoders.com/api2.0/get.php?term=${qs.term}&method=${qs.method}&auth=${qs.auth}`);
 	return Q.nfcall(request.get, 'http://wall.alphacoders.com/api2.0/get.php', { qs: qs })
 		.spread((response, body) => {
 			let result = JSON.parse(body);
 
-			return { imgs: getImageUrls(result) };
+			return { imgs: result.success && getImageUrls(result) };
 		});
 
 };

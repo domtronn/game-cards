@@ -17,7 +17,8 @@ module.exports = function (term) {
         qs: { q: term,
               token: config.apikeys.igdb }
     };
-
+	
+	console.log(`GET https://www.igdb.com/api/v1/games/search?q=${term}`);
     return Q.nfcall(request.get, 'https://www.igdb.com/api/v1/games/search', options)
         .spread((response, body) => {
 

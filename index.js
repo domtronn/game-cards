@@ -3,11 +3,14 @@
 const R   = require('ramda');
 const Q   = require('q');
 const app = require('express')();
+const morgan = require('morgan');
 
 const getData      = require('./src/getData');
 const getWallpaper = require('./src/getWallpaper');
 
 let sanitise = R.compose(R.join(' '), R.split(/\-_/));
+
+app.use(morgan('dev'));
 
 app.param('term', (req, res, next, term) => {
   req.term = sanitise(term);
