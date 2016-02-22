@@ -10,6 +10,8 @@ const getWallpaper = require('./src/getWallpaper');
 
 let sanitise = R.compose(R.join(' '), R.split(/\-_/));
 
+const PORT = 8811;
+
 app.use(morgan('dev'));
 
 app.param('term', (req, res, next, term) => {
@@ -22,4 +24,4 @@ app.get('/game/:term', (req, res) => {
     .spread((a, b) => { res.json(R.merge(a, b)); });
 });
 
-app.listen(8811);
+app.listen(PORT, () => console.log(`Server is running on localhost:${PORT}`));
