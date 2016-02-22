@@ -21,7 +21,7 @@ module.exports = function (term) {
         let result = JSON.parse(body);
 
         return { name: getName(result),
-            dueDate: getReleaseDate(result) };
+            releaseDate: getReleaseDate(result) };
     });
 
 };
