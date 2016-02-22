@@ -1,7 +1,7 @@
 {
-  "name": "project-trellogdb",
+  "name": "gamello",
   "version": "1.0.0",
-  "description": "A power up for trello boards to create cards for games using IGDB",
+  "description": "A node server to provide information for game project management cards using IGDB",
   "main": "index.js",
   "scripts": {
     "develop": "nodemon index.js",
@@ -11,12 +11,12 @@
     "node": "4.3.1"
   },
   "author": "Dominic Charlesworth <dgc336@gmail.com>",
+  "contributors": [
+    {"name": "Tim Perry", "email": "me@timperry.co.uk"},
+    {"name": "Alex Chesters", "email": "alexchesters0@gmail.com"}], 
   "license": "ISC",
   "dependencies": {
-    "commander": "^2.9.0",
     "express": "^4.13.4",
-    "igdb-api-node": "^1.0.0",
-    "lodash": "^4.5.0",
     "morgan": "^1.7.0",
     "percento": "^1.0.13",
     "q": "^1.4.1",
