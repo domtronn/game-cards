@@ -11,17 +11,17 @@ let getImageUrls = R.compose(R.take(limit), R.pluck('url_image'), R.prop('wallpa
 
 module.exports = function (term) {
 
-	let qs = {
-		auth		: config.apikeys.alphacoders,
-		method	: 'search',
-		term		: term
-	};
+  let qs = {
+    auth    : config.apikeys.alphacoders,
+    method  : 'search',
+    term    : term
+  };
 
-	return Q.nfcall(request.get, 'http://wall.alphacoders.com/api2.0/get.php', { qs: qs })
-		.spread((response, body) => {
-			let result = JSON.parse(body);
+  return Q.nfcall(request.get, 'http://wall.alphacoders.com/api2.0/get.php', { qs: qs })
+    .spread((response, body) => {
+      let result = JSON.parse(body);
 
-			return { imgs: getImageUrls(result) };
-		});
+      return { imgs: getImageUrls(result) };
+    });
 
 };

@@ -13,18 +13,18 @@ let getReleaseDate = R.compose((date) => (new Date(date)).getTime(), R.prop('rel
 
 module.exports = function (term) {
 
-    var options = {
-        qs: { q: term,
-              token: config.apikeys.igdb }
-    };
+  var options = {
+    qs: { q: term,
+          token: config.apikeys.igdb }
+  };
 
-    return Q.nfcall(request.get, 'https://www.igdb.com/api/v1/games/search', options)
-        .spread((response, body) => {
+  return Q.nfcall(request.get, 'https://www.igdb.com/api/v1/games/search', options)
+    .spread((response, body) => {
 
-            let result = JSON.parse(body);
+      let result = JSON.parse(body);
 
-            return { name: getName(result),
-                dueDate: getReleaseDate(result) };
-        });
+      return { name: getName(result),
+               dueDate: getReleaseDate(result) };
+    });
 
 };
