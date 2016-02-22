@@ -14,7 +14,7 @@
         "pathname" : "/api2.0/get.php",
         "query" : {
             "method": "search",
-            "term": "%term",
+            "term": "%term%",
             "auth": "%token%"
         }
     }
