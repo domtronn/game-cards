@@ -1,7 +1,7 @@
 'use strict';
 
 const url      = require('url');
-const percento = require('percento');
+const percento = require('percento')();
 
 const uris    = require('../config/uris');
 const apiKeys = require('../config/apiKeys');
