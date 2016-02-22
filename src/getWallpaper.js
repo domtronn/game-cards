@@ -1,29 +1,24 @@
 'use strict';
 
+// Imports
+const Q       = require('q');
+const R       = require('ramda');
 const request = require('request');
-const R = require('ramda');
-const Q = require('q');
+const getUri  = require('./getUri');
 
-const config = require('../config');
+// Helper Functions
 const limit = 5;
-
 let getImageUrls = R.compose(R.take(limit), R.pluck('url_image'), R.prop('wallpapers'));
 
 module.exports = function (term) {
 
-  let qs = {
-    auth    : config.apikeys.alphacoders,
-    method  : 'search',
-    term    : term
-  };
+    let uri = getUri('alphacoders', term);
 
+    console.log(`GET ${uri}`);
+    return Q.nfcall(request.get, uri).spread((response, body) => {
+        let result = JSON.parse(body);
 
-  console.log(`GET http://wall.alphacoders.com/api2.0/get.php?term=${qs.term}&method=${qs.method}&auth=${qs.auth}`);
-  return Q.nfcall(request.get, 'http://wall.alphacoders.com/api2.0/get.php', { qs: qs })
-    .spread((response, body) => {
-      let result = JSON.parse(body);
-
-      return { imgs: result.success && getImageUrls(result) };
+        return { imgs: result.success && getImageUrls(result) };
     });
 
 };

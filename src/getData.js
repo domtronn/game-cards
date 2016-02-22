@@ -1,11 +1,12 @@
 'use strict';
 
-const Q = require('q');
-const R = require('ramda');
+// Imports
+const Q       = require('q');
+const R       = require('ramda');
 const request = require('request');
+const getUri  = require('./getUri');
 
-const config = require('../config');
-
+// Helper Functions
 let firstGame = R.compose(R.head, R.prop('games'));
 
 let getName = R.compose(R.prop('name'), firstGame);
@@ -13,19 +14,14 @@ let getReleaseDate = R.compose((date) => (new Date(date)).getTime(), R.prop('rel
 
 module.exports = function (term) {
 
-  var options = {
-    qs: { q: term,
-          token: config.apikeys.igdb }
-  };
+    let uri = getUri('igdb', term);
 
-  console.log(`GET https://www.igdb.com/api/v1/games/search?q=${term}`);
-  return Q.nfcall(request.get, 'https://www.igdb.com/api/v1/games/search', options)
-    .spread((response, body) => {
+    console.log(`GET ${uri}`);
+    return Q.nfcall(request.get, uri).spread((response, body) => {
+        let result = JSON.parse(body);
 
-      let result = JSON.parse(body);
-
-      return { name: getName(result),
-          dueDate: getReleaseDate(result) };
+        return { name: getName(result),
+            dueDate: getReleaseDate(result) };
     });
 
 };

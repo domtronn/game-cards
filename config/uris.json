@@ -1,0 +1,21 @@
+{
+    "igdb": {
+        "protocol" : "https",
+        "host"     : "www.igdb.com",
+        "pathname" : "/api/v1/games/search",
+        "query" : {
+            "q": "%term%",
+            "token": "%token%"
+        }
+    },
+    "alphacoders": {
+        "protocol" : "http",
+        "host"     : "wall.alphacoders.com",
+        "pathname" : "/api2.0/get.php",
+        "query" : {
+            "method": "search",
+            "term": "%term",
+            "auth": "%token%"
+        }
+    }
+}

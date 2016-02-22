@@ -33,7 +33,7 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-config.json
+apiKeys.json
 .git
 .tern-port
 .tags
